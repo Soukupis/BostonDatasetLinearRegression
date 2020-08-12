@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from computing import *
+from linear_regression import *
 from sklearn.datasets import load_boston
 
 dataset = load_boston()
@@ -26,18 +26,18 @@ y_test = y[indices[-test_size:]]
 def train_model(x, y):
     x_mean = np.mean(x)
     y_mean = np.mean(y)
-    m = computing.compute_slope(x, y, x_mean, y_mean)
-    b = computing.compute_intercept(x_mean, y_mean, m)
+    m = linear_regression.compute_slope(x, y, x_mean, y_mean)
+    b = linear_regression.compute_intercept(x_mean, y_mean, m)
     print("Training is finished")
     print("With Params m: %s and b: %d" % (m, b))
-    regression_line = computing.compute_regression(x, m, b)
-    r2 = computing.compute_r2(y, y_mean, regression_line)
+    regression_line = linear_regression.compute_regression(x, m, b)
+    r2 = linear_regression.compute_r2(y, y_mean, regression_line)
     print("With R2: %s" % r2)
     return m, b
 def test_model(x, y, m, b):
     y_mean = np.mean(y)
-    regression_line = computing.compute_regression(x, m, b)
-    r2 = computing.compute_r2(y, y_mean, regression_line)
+    regression_line = linear_regression.compute_regression(x, m, b)
+    r2 = linear_regression.compute_r2(y, y_mean, regression_line)
     print("Finished testing")
     print("With R2: %s" % r2)
     return r2

@@ -1,4 +1,4 @@
-class computing:
+class linear_regression:
     def __init__(self):
        pass 
     def compute_slope( x, y, x_mean, y_mean):
